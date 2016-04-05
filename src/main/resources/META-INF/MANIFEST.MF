@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: es.ucm.irparser.sexp.IRFileParserDemo
+Main-Class: es.ucm.sexp.SexpFileParserDemo
 

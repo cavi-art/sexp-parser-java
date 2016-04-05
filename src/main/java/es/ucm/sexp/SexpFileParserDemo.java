@@ -1,4 +1,4 @@
-package es.ucm.irparser.sexp;
+package es.ucm.sexp;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author Santiago Saavedra López
  * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
-public class IRFileParserDemo {
+public class SexpFileParserDemo {
 
     private static String testData = "((data \"quoted data\" 123 4.5)\n (data (!@# (4.5) \"(more\" \"data)\")))\n" +
             "(hello world)\n" +
@@ -38,7 +38,7 @@ public class IRFileParserDemo {
             }
         }
 
-        IRFileParser parser = new IRFileParser(data);
+        SexpFileParser parser = new SexpFileParser(data);
 
         try {
             List<SexpParser.Expr> result = parser.parseExprs();

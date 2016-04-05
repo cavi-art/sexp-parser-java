@@ -1,17 +1,17 @@
-package es.ucm;
+package es.ucm.sexp;
 
-import es.ucm.irparser.sexp.Atom;
-import es.ucm.irparser.sexp.IRFileParser;
-import es.ucm.irparser.sexp.SexpParser;
+import es.ucm.sexp.Atom;
+import es.ucm.sexp.SexpFileParser;
+import es.ucm.sexp.SexpParser;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
-import static es.ucm.irparser.sexp.SexpUtils.*;
+import static es.ucm.sexp.SexpUtils.*;
 
-public class IRParser {
+public class Main {
 
     public static void main(String args[]) {
 
@@ -31,7 +31,7 @@ public class IRParser {
         }
 
         try {
-            IRFileParser parser = new IRFileParser(data);
+            SexpFileParser parser = new SexpFileParser(data);
             List<SexpParser.Expr> result = parser.parseExprs();
 
             for (SexpParser.Expr expr : result) {

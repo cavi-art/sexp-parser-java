@@ -1,6 +1,4 @@
-package es.ucm.irparser.sexp;
-
-import es.ucm.irparser.sexp.SexpParser.Expr;
+package es.ucm.sexp;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,19 +17,19 @@ import java.util.List;
  *
  * @author Santiago Saavedra López
  */
-public class IRFileParser implements Iterator<Expr> {
+public class SexpFileParser implements Iterator<SexpParser.Expr> {
     private final SexpParser parser;
     private final SexpTokenizer tokenizer;
 
-    public IRFileParser(InputStream r) {
+    public SexpFileParser(InputStream r) {
         this(new InputStreamReader(r));
     }
 
-    public IRFileParser(Reader r) {
+    public SexpFileParser(Reader r) {
         this(new SexpTokenizer(r));
     }
 
-    public IRFileParser(SexpTokenizer input) {
+    public SexpFileParser(SexpTokenizer input) {
         tokenizer = input;
         parser = new SexpParser(tokenizer);
     }
@@ -43,7 +41,7 @@ public class IRFileParser implements Iterator<Expr> {
      * @return Expr
      * @throws SexpParser.ParseException on malformed input
      */
-    public Expr parseExpr() throws SexpParser.ParseException {
+    public SexpParser.Expr parseExpr() throws SexpParser.ParseException {
         return parser.parseExpr();
     }
 
@@ -51,11 +49,11 @@ public class IRFileParser implements Iterator<Expr> {
      * Parses all the expressions that there may be in the input stream,
      * returning them all as a java.util.List.
      *
-     * @return {@link List<Expr>} with the parsed expressions
+     * @return {@link List< SexpParser.Expr >} with the parsed expressions
      * @throws SexpParser.ParseException on malformed input
      */
-    public List<Expr> parseExprs() throws SexpParser.ParseException {
-        List<Expr> exprs = new ArrayList<Expr>();
+    public List<SexpParser.Expr> parseExprs() throws SexpParser.ParseException {
+        List<SexpParser.Expr> exprs = new ArrayList<SexpParser.Expr>();
         while (hasNext()) {
             exprs.add(parseExpr());
         }
@@ -76,9 +74,9 @@ public class IRFileParser implements Iterator<Expr> {
     /**
      * Parses an expression. Part of the iterator contract.
      *
-     * @see IRFileParser#parseExpr()
+     * @see SexpFileParser#parseExpr()
      */
-    public Expr next() {
+    public SexpParser.Expr next() {
         try {
             return parseExpr();
         } catch (SexpParser.ParseException e) {

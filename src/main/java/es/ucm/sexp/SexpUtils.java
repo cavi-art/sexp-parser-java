@@ -1,6 +1,4 @@
-package es.ucm.irparser.sexp;
-
-import es.ucm.irparser.sexp.SexpParser.Expr;
+package es.ucm.sexp;
 
 import java.util.Iterator;
 
@@ -18,7 +16,7 @@ public class SexpUtils {
      *
      * @param e an Expr which is really a cons or null
      */
-    public static Expr car(Expr e) {
+    public static SexpParser.Expr car(SexpParser.Expr e) {
         if (e == null) return null;
 
         return e.getList().car;
@@ -33,7 +31,7 @@ public class SexpUtils {
      * @param e an Expr which is really a cons or null
      * @return the cdr of e or null
      */
-    public static Expr cdr(Expr e) {
+    public static SexpParser.Expr cdr(SexpParser.Expr e) {
         if (e == null) return null;
 
         return e.getList().cdr;
@@ -45,7 +43,7 @@ public class SexpUtils {
      * @param e an Expr which is really a cons
      * @return the second element of e
      */
-    public static Expr cadr(Expr e) {
+    public static SexpParser.Expr cadr(SexpParser.Expr e) {
         return car(cdr(e));
     }
 
@@ -55,7 +53,7 @@ public class SexpUtils {
      * @param e an Expr which is really a cons
      * @return
      */
-    public static Expr caddr(Expr e) {
+    public static SexpParser.Expr caddr(SexpParser.Expr e) {
         return car(cdr(cdr(e)));
     }
 
@@ -71,14 +69,14 @@ public class SexpUtils {
      * only the cons-list <code>(b c)</code>. Remember that the former list is
      * exactly the same as <code>((a . (b c)) (d . (e f)))</code>.
      *
-     * @param key   the key to search for (compared using {@link Expr#equals(Object)})
+     * @param key   the key to search for (compared using {@link SexpParser.Expr#equals(Object)})
      * @param alist the alist in which to search for the key (must be a proper list)
      * @return an expr containing the list if the element is matched or null.
      */
-    public static Expr assoc(Expr key, Expr alist) {
-        Iterator<Expr> i = alist.getList().iterator();
+    public static SexpParser.Expr assoc(SexpParser.Expr key, SexpParser.Expr alist) {
+        Iterator<SexpParser.Expr> i = alist.getList().iterator();
         while (i.hasNext()) {
-            Expr l = i.next();
+            SexpParser.Expr l = i.next();
             if (l.isList() && car(l).equals(key)) {
                 return l;
             }

@@ -8,9 +8,7 @@
  * @author Santiago Saavedra López
  * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
-package es.ucm.irparser.sexp;
-
-import es.ucm.irparser.sexp.SexpParser.Expr;
+package es.ucm.sexp;
 
 import java.util.Iterator;
 import java.util.function.Consumer;
@@ -33,15 +31,15 @@ import java.util.function.Consumer;
  * interface, which will give you the elements one by one.
  *
  * @author Santiago Saavedra
- * @see Expr
+ * @see SexpParser.Expr
  * @see Atom
  * @see StringAtom
  */
-public class Cons implements Expr, Iterable<Expr> {
-    public final Expr car;
-    public final Expr cdr;
+public class Cons implements SexpParser.Expr, Iterable<SexpParser.Expr> {
+    public final SexpParser.Expr car;
+    public final SexpParser.Expr cdr;
 
-    public Cons(Expr car, Expr cdr) {
+    public Cons(SexpParser.Expr car, SexpParser.Expr cdr) {
         this.car = car;
         this.cdr = cdr;
     }
@@ -65,7 +63,7 @@ public class Cons implements Expr, Iterable<Expr> {
 
     protected String innerToString() {
         StringBuilder sb = new StringBuilder();
-        Expr cell = cdr;
+        SexpParser.Expr cell = cdr;
 
         while (cell != null) {
             if (cell.isList()) {
@@ -129,10 +127,10 @@ public class Cons implements Expr, Iterable<Expr> {
      *
      * @return car-iterator for this cons cell
      */
-    public Iterator<Expr> carIterator() {
+    public Iterator<SexpParser.Expr> carIterator() {
         final Cons obj = this;
 
-        return new Iterator<Expr>() {
+        return new Iterator<SexpParser.Expr>() {
             private Cons cell = new Cons(null, obj);
 
             @Override
@@ -141,14 +139,14 @@ public class Cons implements Expr, Iterable<Expr> {
             }
 
             @Override
-            public Expr next() {
+            public SexpParser.Expr next() {
                 cell = cell.cdr.getList();
                 return cell.car;
             }
         };
     }
 
-    public void mapcar(Consumer<? super Expr> action) {
+    public void mapcar(Consumer<? super SexpParser.Expr> action) {
         Cons obj = this;
         while (obj != null) {
             action.accept(obj.car);
@@ -157,12 +155,12 @@ public class Cons implements Expr, Iterable<Expr> {
     }
 
     @Override
-    public Iterator<Expr> iterator() {
+    public Iterator<SexpParser.Expr> iterator() {
         return carIterator();
     }
 
     @Override
-    public void forEach(Consumer<? super Expr> action) {
+    public void forEach(Consumer<? super SexpParser.Expr> action) {
         mapcar(action);
     }
 }

@@ -25,16 +25,16 @@ To compile using just plain javac use the following commands:
 
 Then execute with:
 
-    $ java -cp out es.ucm.irparser.sexp.IRFileParserDemo path/to/file.clir
+    $ java -cp out es.ucm.sexp.SexpFileParserDemo path/to/file.clir
 
-    $ java c-p out es.ucm.irparser.IRParser path/to/file.clir
+    $ java c-p out es.ucm.sexp.Main path/to/file.clir
 
 
 Usage
 -----
 
 To use this as a library in your code, just create a new
-`IRFileParser(InputStream in)` from your preferred InputStream.
+`SexpFileParser(InputStream in)` from your preferred InputStream.
 
 You can get all the top-level expressions in the file by means of
 `public List<Expr> parseExprs()`.
@@ -43,7 +43,7 @@ Remember that an `Expr` is either an `Atom` or a `Cons`. An Atom can
 be a `StringAtom` for literal strings. Numbers are (non-string) atoms.
 You can test against that via the `Expr.isAtom()` and `Expr.isList()`
 methods.  You can get the first element of the list with the static
-`es.ucm.irparser.sexp.SexpUtils.car()` method, and the **rest** of the
+`es.ucm.sexp.SexpUtils.car()` method, and the **rest** of the
 list (not the second element) with the static `cdr()` counterpart. You
 also have the convenience methods `cadr()` and `caddr()` for accesing
 the second and third elements of the list.

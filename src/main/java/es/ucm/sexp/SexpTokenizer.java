@@ -1,4 +1,4 @@
-package es.ucm.irparser.sexp;
+package es.ucm.sexp;
 
 import java.io.*;
 import java.util.Iterator;

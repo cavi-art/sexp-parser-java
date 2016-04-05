@@ -8,9 +8,7 @@
  * @author Santiago Saavedra López
  * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
-package es.ucm.irparser.sexp;
-
-import es.ucm.irparser.sexp.SexpParser.Expr;
+package es.ucm.sexp;
 
 /**
  * An atom is the most primitive element in a s-expression.
@@ -26,9 +24,9 @@ import es.ucm.irparser.sexp.SexpParser.Expr;
  *
  * @see StringAtom
  * @see Cons
- * @see Expr
+ * @see SexpParser.Expr
  */
-public class Atom implements Expr {
+public class Atom implements SexpParser.Expr {
     String name;
 
     public Atom(String text) {

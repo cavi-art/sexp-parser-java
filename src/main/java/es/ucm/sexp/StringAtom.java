@@ -8,7 +8,7 @@
  * @author Santiago Saavedra López
  * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
-package es.ucm.irparser.sexp;
+package es.ucm.sexp;
 
 /**
  * A StringAtom is the specialization of {@link Atom}s for holding strings.
