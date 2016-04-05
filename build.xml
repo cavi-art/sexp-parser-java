@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ir-sexp-parser-java" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module ir-sexp-parser-java -->
+  
+  <dirname property="module.ir-sexp-parser-java.basedir" file="${ant.file}"/>
+  
+  
+  
+  <property name="compiler.args.ir-sexp-parser-java" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="ir-sexp-parser-java.output.dir" value="${module.ir-sexp-parser-java.basedir}/target/classes"/>
+  <property name="ir-sexp-parser-java.testoutput.dir" value="${module.ir-sexp-parser-java.basedir}/target/test-classes"/>
+  
+  <path id="ir-sexp-parser-java.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ir-sexp-parser-java.module.production.classpath"/>
+  
+  <path id="ir-sexp-parser-java.runtime.production.module.classpath">
+    <pathelement location="${ir-sexp-parser-java.output.dir}"/>
+  </path>
+  
+  <path id="ir-sexp-parser-java.module.classpath">
+    <pathelement location="${ir-sexp-parser-java.output.dir}"/>
+  </path>
+  
+  <path id="ir-sexp-parser-java.runtime.module.classpath">
+    <pathelement location="${ir-sexp-parser-java.testoutput.dir}"/>
+    <pathelement location="${ir-sexp-parser-java.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ir-sexp-parser-java">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ir-sexp-parser-java">
+    <patternset refid="excluded.from.module.ir-sexp-parser-java"/>
+  </patternset>
+  
+  <path id="ir-sexp-parser-java.module.sourcepath">
+    <dirset dir="${module.ir-sexp-parser-java.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="ir-sexp-parser-java.module.test.sourcepath">
+    <dirset dir="${module.ir-sexp-parser-java.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.ir-sexp-parser-java" depends="compile.module.ir-sexp-parser-java.production,compile.module.ir-sexp-parser-java.tests" description="Compile module ir-sexp-parser-java"/>
+  
+  <target name="compile.module.ir-sexp-parser-java.production" description="Compile module ir-sexp-parser-java; production classes">
+    <mkdir dir="${ir-sexp-parser-java.output.dir}"/>
+    <javac destdir="${ir-sexp-parser-java.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.ir-sexp-parser-java}"/>
+      <bootclasspath refid="ir-sexp-parser-java.module.bootclasspath"/>
+      <classpath refid="ir-sexp-parser-java.module.production.classpath"/>
+      <src refid="ir-sexp-parser-java.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ir-sexp-parser-java"/>
+    </javac>
+    
+    <copy todir="${ir-sexp-parser-java.output.dir}">
+      <fileset dir="${module.ir-sexp-parser-java.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.ir-sexp-parser-java.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.ir-sexp-parser-java.tests" depends="compile.module.ir-sexp-parser-java.production" description="compile module ir-sexp-parser-java; test classes" unless="skip.tests">
+    <mkdir dir="${ir-sexp-parser-java.testoutput.dir}"/>
+    <javac destdir="${ir-sexp-parser-java.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+      <compilerarg line="${compiler.args.ir-sexp-parser-java}"/>
+      <bootclasspath refid="ir-sexp-parser-java.module.bootclasspath"/>
+      <classpath refid="ir-sexp-parser-java.module.classpath"/>
+      <src refid="ir-sexp-parser-java.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ir-sexp-parser-java"/>
+    </javac>
+    
+    <copy todir="${ir-sexp-parser-java.testoutput.dir}">
+      <fileset dir="${module.ir-sexp-parser-java.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.ir-sexp-parser-java" description="cleanup module">
+    <delete dir="${ir-sexp-parser-java.output.dir}"/>
+    <delete dir="${ir-sexp-parser-java.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.ir-sexp-parser-java" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.ir-sexp-parser-java" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.ir-sexp-parser-java:jar" value="${basedir}/out/artifacts/ir_sexp_parser_java_jar"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.ir-sexp-parser-java.jar" value="${artifacts.temp.dir}/ir-sexp-parser-java.jar"/>
+  </target>
+  
+  <target name="artifact.ir-sexp-parser-java:jar" depends="init.artifacts, compile.module.ir-sexp-parser-java" description="Build &#39;ir-sexp-parser-java:jar&#39; artifact">
+    <property name="artifact.temp.output.ir-sexp-parser-java:jar" value="${artifacts.temp.dir}/ir_sexp_parser_java_jar"/>
+    <mkdir dir="${artifact.temp.output.ir-sexp-parser-java:jar}"/>
+    <jar destfile="${temp.jar.path.ir-sexp-parser-java.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${ir-sexp-parser-java.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.ir-sexp-parser-java.jar}" tofile="${artifact.temp.output.ir-sexp-parser-java:jar}/ir-sexp-parser-java.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.ir-sexp-parser-java:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.ir-sexp-parser-java:jar}"/>
+    <copy todir="${artifact.output.ir-sexp-parser-java:jar}">
+      <fileset dir="${artifact.temp.output.ir-sexp-parser-java:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
