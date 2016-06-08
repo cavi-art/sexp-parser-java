@@ -1,6 +1,8 @@
 package es.ucm.sexp;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Utility static methods for convenience on handling conses.
@@ -51,10 +53,19 @@ public class SexpUtils {
      * Gets the third element of the list e.
      *
      * @param e an Expr which is really a cons
-     * @return
+     * @return the third element of e
      */
     public static SexpParser.Expr caddr(SexpParser.Expr e) {
         return car(cdr(cdr(e)));
+    }
+
+    /**
+     * Gets the rest of the rest of the list e (third and following elements).
+     * @param e an Expr which is really a cons
+     * @return the rest of the rest of the cons
+     */
+    public static SexpParser.Expr cddr(SexpParser.Expr e) {
+        return cdr(cdr(e));
     }
 
     /**
@@ -82,5 +93,52 @@ public class SexpUtils {
             }
         }
         return null;
+    }
+
+    /**
+     * Converts a list to a cons list.
+     * @param list a Java List which is to be converted to a cons list
+     * @return a cons list of stringified atoms from the original Java list
+     */
+    public static Cons listToCons(List<? extends Object> list) {
+        Object[] objects = list.toArray();
+        Cons cons = null;
+
+        for(int i = objects.length - 1; i >= 0; --i) {
+            cons = new Cons(new Atom(objects[i].toString()), cons);
+        }
+
+        return cons;
+    }
+
+    /**
+     * Converts a cons list to a Java list of strings. The cons list should
+     * be formed by atoms.
+     * @param cons a list of atoms
+     * @return List of Strings
+     */
+    public static List<String> consToStringList(SexpParser.Expr cons) {
+        ArrayList l;
+        for(l = new ArrayList(); cons != null; cons = cdr(cons)) {
+            l.add(car(cons).getAtom().toString());
+        }
+
+        return l;
+    }
+
+    /**
+     * Converts a cons list to a Java list of Exprs. That is, converts the
+     * first level of a cons list into a Java list, with the underlying
+     * elements still there (be it Atoms or further Conses).
+     * @param cons an arbitrary cons list
+     * @return a List of {@link es.ucm.sexp.SexpParser.Expr}
+     */
+    public static List<SexpParser.Expr> consToList(SexpParser.Expr cons) {
+        ArrayList l;
+        for(l = new ArrayList(); cons != null; cons = cdr(cons)) {
+            l.add(car(cons));
+        }
+
+        return l;
     }
 }
