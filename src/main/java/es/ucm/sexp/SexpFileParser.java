@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * This class the main entry point for our IR File Parser.
- * <p/>
+ * <p>
  * Usage: create a new instance with an InputStream or a Reader, and call
  * `parseExpr` as many times as you want an expression, or use, either the
  * iterator interface or the parseExprs method to get them all at once.
@@ -49,7 +49,8 @@ public class SexpFileParser implements Iterator<SexpParser.Expr> {
      * Parses all the expressions that there may be in the input stream,
      * returning them all as a java.util.List.
      *
-     * @return {@link List< SexpParser.Expr >} with the parsed expressions
+     * @return {@link List } of {@link SexpParser.Expr} with the parsed
+     * expressions
      * @throws SexpParser.ParseException on malformed input
      */
     public List<SexpParser.Expr> parseExprs() throws SexpParser.ParseException {
@@ -62,8 +63,8 @@ public class SexpFileParser implements Iterator<SexpParser.Expr> {
     }
 
     /**
-     * Returns whether the file has already been completely consumed.
-     * Part of the iterator contract.
+     * Returns whether the file has already been completely consumed. Part of
+     * the iterator contract.
      *
      * @return {@link Boolean} indicating whether we have reached the end.
      */
@@ -85,5 +86,6 @@ public class SexpFileParser implements Iterator<SexpParser.Expr> {
     }
 
     @Override
-    public void remove() {}
+    public void remove() {
+    }
 }

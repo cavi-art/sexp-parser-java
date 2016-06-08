@@ -4,14 +4,15 @@ import java.io.*;
 import java.util.Iterator;
 
 /**
- * This class is based on work from Joel F. Klein,
- * and is released under the terms of the GNU GPL and the GNU GFDL.
- * <p/>
+ * This class is based on work from Joel F. Klein, and is released under the
+ * terms of the GNU GPL and the GNU GFDL.
+ * <p>
  * Modified by Santiago Saavedra to better suit Lisp s-expressions.
+ * <p>
+ * See: http://jfkbits.blogspot.com.es/2008/05/thoughts-on-s-expression-lexer.html
  *
  * @author Joel F. Klein
  * @author Santiago Saavedra López
- * @url http://jfkbits.blogspot.com.es/2008/05/thoughts-on-s-expression-lexer.html
  */
 public class SexpTokenizer implements Iterator<Token> {
     // Instance variables have default access to allow unit tests access.
@@ -84,7 +85,7 @@ public class SexpTokenizer implements Iterator<Token> {
     /**
      * Return the most recently caught IOException, if any,
      *
-     * @return
+     * @return IOException that have been caught
      */
     public IOException getIOException() {
         return m_ioexn;

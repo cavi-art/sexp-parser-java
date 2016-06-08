@@ -3,14 +3,15 @@ package es.ucm.sexp;
 import java.io.StreamTokenizer;
 
 /**
- * This class is based on work from Joel F. Klein,
- * and is released under the terms of the GNU GPL and the GNU GFDL.
- * <p/>
+ * This class is based on work from Joel F. Klein, and is released under the
+ * terms of the GNU GPL and the GNU GFDL.
+ * <p>
  * Modified by Santiago Saavedra to better suit s-expressions.
+ * <p>
+ * See: http://jfkbits.blogspot.com .es/2008/05/thoughts-on-s-expression-parser.html
  *
  * @author Joel F. Klein
  * @author Santiago Saavedra López
- * @url http://jfkbits.blogspot.com.es/2008/05/thoughts-on-s-expression-parser.html
  */
 public class SexpParser {
     SexpTokenizer tokenizer;

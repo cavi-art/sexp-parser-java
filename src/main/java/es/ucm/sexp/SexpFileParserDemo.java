@@ -7,14 +7,16 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * This class is based on work from Joel F. Klein, and authors at rosettacode.org
- * and is released under the terms of the GNU GPL and the GNU GFDL.
- * <p/>
+ * This class is based on work from Joel F. Klein, and authors at
+ * rosettacode.org and is released under the terms of the GNU GPL and the GNU
+ * GFDL.
+ * <p>
  * Modified by Santiago Saavedra to better suit his needs.
+ * <p>
+ * See: https://rosettacode.org/wiki/S-Expressions#Java
  *
  * @author Joel F. Klein
  * @author Santiago Saavedra López
- * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
 public class SexpFileParserDemo {
 

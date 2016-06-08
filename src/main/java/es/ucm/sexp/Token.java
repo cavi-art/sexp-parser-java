@@ -3,12 +3,14 @@ package es.ucm.sexp;
 import java.io.StreamTokenizer;
 
 /**
- * This class is based on work from Joel F. Klein, and authors at rosettacode.org
- * and is released under the terms of the GNU GPL and the GNU GFDL.
+ * This class is based on work from Joel F. Klein, and authors at
+ * rosettacode.org and is released under the terms of the GNU GPL and the GNU
+ * GFDL.
+ * <p>
+ * See: https://rosettacode.org/wiki/S-Expressions#Java
  *
  * @author Joel F. Klein
  * @author Santiago Saavedra López
- * @url https://rosettacode.org/wiki/S-Expressions#Java
  */
 public class Token {
     public static final int SYMBOL = StreamTokenizer.TT_WORD;

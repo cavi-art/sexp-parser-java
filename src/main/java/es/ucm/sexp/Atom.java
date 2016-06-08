@@ -1,6 +1,7 @@
 /**
- * This file is based on work from Joel F. Klein, and authors at rosettacode.org
- * and is released under the terms of the GNU GPL and the GNU GFDL.
+ * This file is based on work from Joel F. Klein, and authors at
+ * rosettacode.org and is released under the terms of the GNU GPL and the GNU
+ * GFDL.
  * <p/>
  * Modified by Santiago Saavedra to better suit his needs.
  *
@@ -12,13 +13,13 @@ package es.ucm.sexp;
 
 /**
  * An atom is the most primitive element in a s-expression.
- * <p/>
+ * <p>
  * It is atomic. Its representation can be written via toString and it has no
  * other accessor methods.
- * <p/>
+ * <p>
  * Equality of atoms is compared always in a <b>case-insensitive</b> manner
  * for compatibility with various lisps.
- * <p/>
+ * <p>
  * There is a specialization of an Atom called {@link StringAtom} for holding
  * string literals.
  *

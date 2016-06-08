@@ -1,6 +1,7 @@
 /**
- * This file is based on work from Joel F. Klein, and authors at rosettacode.org
- * and is released under the terms of the GNU GPL and the GNU GFDL.
+ * This file is based on work from Joel F. Klein, and authors at
+ * rosettacode.org and is released under the terms of the GNU GPL and the GNU
+ * GFDL.
  * <p/>
  * Modified by Santiago Saavedra to better suit his needs.
  *
@@ -12,12 +13,11 @@ package es.ucm.sexp;
 
 /**
  * A StringAtom is the specialization of {@link Atom}s for holding strings.
- * <p/>
+ *
  * Equality of Strings is compared in a <b>case-sensitive</b> manner. Thus,
  * the equality comparison is not the same as atoms in general.
- * <p/>
+ *
  * Other atoms, including numbers are held in the general class {@link Atom}.
- * <p/>
  *
  * @see Atom
  * @see Cons

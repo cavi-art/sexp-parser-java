@@ -1,6 +1,7 @@
 /**
- * This file is based on work from Joel F. Klein, and authors at rosettacode.org
- * and is released under the terms of the GNU GPL and the GNU GFDL.
+ * This file is based on work from Joel F. Klein, and authors at
+ * rosettacode.org and is released under the terms of the GNU GPL and the GNU
+ * GFDL.
  * <p/>
  * Modified by Santiago Saavedra to better suit his needs.
  *
@@ -14,18 +15,18 @@ import java.util.Iterator;
 
 /**
  * A cons is a pair; a primitive element in a s-expression.
- * <p/>
+ *
  * A cons has two parts: traditionally called <b>car</b> and <b>cdr</b>.
  * Our cons implementation is immutable, so the properties can be directly
  * accessed. However, a more functional-oriented approach is available as
  * convenience static methods in {@link SexpUtils}.
- * <p/>
+ *
  * A list is made up of cons cells, forming a single-linked list, by which
  * the car points to each element and the cdr should point to the rest of the
  * list. We are using the java null value to indicate the empty list and the
  * list termination marker. Thus, a proper list of one element would be:
  * <code>new Cons(element, null)</code>.
- * <p/>
+ *
  * You can iterate through the values in the list via the implemented Iterable
  * interface, which will give you the elements one by one.
  *
@@ -144,7 +145,8 @@ public class Cons implements SexpParser.Expr, Iterable<SexpParser.Expr> {
             }
 
             @Override
-            public void remove() {}
+            public void remove() {
+            }
         };
     }
 
