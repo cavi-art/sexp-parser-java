@@ -1,0 +1,13 @@
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk7
+deploy:
+  provider: releases
+  api_key:
+    secure: 0LtDa1jS4cuxHQAVQgLj2N7bZoorY466pYMAI1n45I7d3lWHu6rX+KQDpNyVABpSFCDi33uTsb7xLnPZsLKcc51GaHD2YW6rpWqDzLLmbx/Y8BqdAzZbloPM4xOVYBdmVBVHkYT+TReP7fO9YU7GzMdA23qSUi3H5uhuLY9piaNrHdTAu7oGDy7UImEzMylZLBg+LOPxe+RlEZgjZgtY4LDL0Vdufxkz4JDimdKEhEcGYwlGXIbNiMsNkTkTpwlVfKjYGw/YPO731ED6U3ZhrOgOGYk7AiYalgA/2BAf2EdzvSnJC7dTAHzLhyoT8pmj/nG8qrQbzRqZ9fkOUjpW3jPBld7o//U4ik8jIm7xgzg96vw9PGIsvg3aRE4cnYBaUtHaWXSWovTSWBZTDEc3HBPumxVqmlXlObJufipygv3EFk8kfPEg0S7IppbzArzZzO8smHaGO4fiy3fm5Gp2Tk6LbdDXC2B3MF/GwptxrwCxZBZ6ZAqO9yJwVQyO2gKej+oul3bDhnaSYhGwMQP/sTvd9gs/C8KS7BCDARYsesNg4GU4LEFR84eiTx32ea/fYzqmYlaW+JpZQF4iP0bS0fDpI0MNA10fnZc///vpPjSgn+wubcHttrc//r8Sn18MsgajCs2D1hzzX+hbcr9I/uSa9ei3ExsaMsfLj3KZrGw=
+  file: target/ir-sexp-parser-java-1.0-SNAPSHOT.jar
+  skip_cleanup: true
+  on:
+    tags: true
