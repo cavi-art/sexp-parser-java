@@ -11,7 +11,6 @@
 package es.ucm.sexp;
 
 import java.util.Iterator;
-import java.util.function.Consumer;
 
 /**
  * A cons is a pair; a primitive element in a s-expression.
@@ -143,15 +142,10 @@ public class Cons implements SexpParser.Expr, Iterable<SexpParser.Expr> {
                 cell = cell.cdr.getList();
                 return cell.car;
             }
-        };
-    }
 
-    public void mapcar(Consumer<? super SexpParser.Expr> action) {
-        Cons obj = this;
-        while (obj != null) {
-            action.accept(obj.car);
-            obj = obj.cdr.getList();
-        }
+            @Override
+            public void remove() {}
+        };
     }
 
     @Override
@@ -159,8 +153,16 @@ public class Cons implements SexpParser.Expr, Iterable<SexpParser.Expr> {
         return carIterator();
     }
 
-    @Override
-    public void forEach(Consumer<? super SexpParser.Expr> action) {
-        mapcar(action);
-    }
+//    public void mapcar(Consumer<? super SexpParser.Expr> action) {
+//        Cons obj = this;
+//        while (obj != null) {
+//            action.accept(obj.car);
+//            obj = obj.cdr.getList();
+//        }
+//    }
+//
+//    @Override
+//    public void forEach(Consumer<? super SexpParser.Expr> action) {
+//        mapcar(action);
+//    }
 }

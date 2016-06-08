@@ -83,4 +83,7 @@ public class SexpFileParser implements Iterator<SexpParser.Expr> {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void remove() {}
 }
