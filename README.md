@@ -1,6 +1,7 @@
 IR Sexp Parser for CAVI-ART
 ===========================
 [![Build Status](https://travis-ci.org/cavi-art/sexp-parser-java.svg?branch=master)](https://travis-ci.org/cavi-art/sexp-parser-java)
+[![Get dependency as JitPack](https://jitpack.io/v/cavi-art/sexp-parser-java.svg)](https://jitpack.io/#cavi-art/sexp-parser-java)
 
 This is a Proof of Concept.
 
