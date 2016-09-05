@@ -3,14 +3,19 @@ package es.ucm.sexp;
 import java.io.StreamTokenizer;
 
 /**
- * This class is based on work from Joel F. Klein, and is released under the
- * terms of the GNU GPL and the GNU GFDL.
- * <p>
- * Modified by Santiago Saavedra to better suit s-expressions.
- * <p>
- * See: http://jfkbits.blogspot.com .es/2008/05/thoughts-on-s-expression-parser.html
+ * This is the base S-Expression parser.
  *
- * @author Joel F. Klein
+ * It understands just a few constructs of the Lisp language, namely QUOTE,
+ * QUASIQUOTE and UNQUOTE. In the future it may be desirable to embed a
+ * readtable, as Lisp does, in order to customize the behavior of alien
+ * characters which may carry meaning on dedicated s-expressions.
+ *
+ * This class is inspired on former work from Joel F. Klein, which was
+ * released under the terms of the GNU GPL and the GNU GFDL.
+ * Although, this one was written from scratch
+ * <p>
+ * See: http://jfkbits.blogspot.com.es/2008/05/thoughts-on-s-expression-parser.html
+ *
  * @author Santiago Saavedra López
  */
 public class SexpParser {

@@ -5,11 +5,13 @@ IR Sexp Parser for CAVI-ART
 
 This is a Proof of Concept.
 
-This is a parser, based on work from Joel F. Klein, published unde GPL
-and FDL at RosettaCode.  We changed the parser so that it also
-correctly accepts *improper* lists, as well as using a more similar
-datatype for storing lists, as it is the cons, instead of using an
-ArrayList-based strategy.
+This is a parser, inspired on the publication from Joel F. Klein,
+published under GPL and FDL at RosettaCode. We did not take any code
+from it directly, so not being a derived work from it, we are
+releasing it under the Apache 2 license. We changed the parser so that
+it also correctly accepts *improper* lists, as well as using a more
+similar datatype for storing lists, as it is the cons, instead of
+using an ArrayList-based strategy.
 
 
 To compile you will need:

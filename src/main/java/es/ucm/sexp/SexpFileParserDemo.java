@@ -7,21 +7,11 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * This class is based on work from Joel F. Klein, and authors at
- * rosettacode.org and is released under the terms of the GNU GPL and the GNU
- * GFDL.
- * <p>
- * Modified by Santiago Saavedra to better suit his needs.
- * <p>
- * See: https://rosettacode.org/wiki/S-Expressions#Java
- *
- * @author Joel F. Klein
  * @author Santiago Saavedra López
  */
 public class SexpFileParserDemo {
 
-    private static String testData = "((data \"quoted data\" 123 4.5)\n (data (!@# (4.5) \"(more\" \"data)\")))\n" +
-            "(hello world)\n" +
+    private static String testData = "(hello world)\n" +
             "'((test 5 . NIL) (data (beta c . 4)) . 5) 4 (75 . NIL)";
     private static InputStream data = new ByteArrayInputStream(testData.getBytes());
 

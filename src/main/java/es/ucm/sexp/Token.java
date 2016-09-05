@@ -3,6 +3,9 @@ package es.ucm.sexp;
 import java.io.StreamTokenizer;
 
 /**
+ * Base token class. We need this class to handle tokens in the
+ * tokenization phase of the compiler, to pass them to the compiler.
+ *
  * This class is based on work from Joel F. Klein, and authors at
  * rosettacode.org and is released under the terms of the GNU GPL and the GNU
  * GFDL.
