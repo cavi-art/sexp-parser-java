@@ -111,6 +111,8 @@ public class Cons implements SexpParser.Expr, Iterable<SexpParser.Expr> {
                 return false;
             }
 
+            if(!eq) return false; // Optimization to avoid recursion
+
             if (cdr != null) {
                 eq = eq && cdr.equals(o.cdr);
             } else if (o.cdr != null) {
